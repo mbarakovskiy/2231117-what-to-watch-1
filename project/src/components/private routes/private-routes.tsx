@@ -11,7 +11,7 @@ function PrivateRoute({ authorizationStatus, children }: PrivateRouteProps): JSX
     authorizationStatus === AuthorizationStatus.Auth
       ? children
       : <Navigate to={AppRoute.SignIn} />
-  )
+  );
 }
 
 export default PrivateRoute;
