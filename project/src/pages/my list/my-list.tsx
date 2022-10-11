@@ -4,7 +4,6 @@ import Footer from '../../components/footer/footer';
 import FilmCard from '../../components/filmCard/film-card';
 
 
-
 function MyListPage () : JSX.Element {
   return (
     <div className="user-page">

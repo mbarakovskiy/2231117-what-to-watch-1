@@ -37,4 +37,4 @@ function Player(): JSX.Element {
   );
 }
 
-export default Player
+export default Player;
