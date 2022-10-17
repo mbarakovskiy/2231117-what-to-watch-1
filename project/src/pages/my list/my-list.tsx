@@ -1,8 +1,7 @@
 import Logo from '../../components/logo/logo';
 import Footer from '../../components/footer/footer';
-import FilmCard from '../../components/filmCard/film-card';
-import {FilmData} from "../../types/film-data";
-import FilmsList from "../../components/films list/films-list";
+import {FilmData} from '../../types/film-data';
+import FilmsList from '../../components/films list/films-list';
 
 type MyListProps = {
   films: FilmData[];
