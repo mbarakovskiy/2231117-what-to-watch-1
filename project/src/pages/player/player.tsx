@@ -1,5 +1,3 @@
-
-
 function Player(): JSX.Element {
   return (
     <div className="player">

@@ -1,7 +1,6 @@
 import Footer from '../../components/footer/footer';
 import Logo from '../../components/logo/logo';
 import FilmCard from '../../components/filmCard/film-card';
-import React from 'react';
 
 type FilmProps = {
   name: string;
