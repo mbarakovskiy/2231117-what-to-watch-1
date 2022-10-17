@@ -1,4 +1,3 @@
-import React from 'react';
 import FilmCard, {FilmCardProps} from '../../components/filmCard/film-card';
 import Footer from '../../components/footer/footer';
 

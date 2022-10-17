@@ -1,12 +1,10 @@
-import React from 'react';
-
 export type FilmCardProps = {
   name: string;
   image: string;
 }
 
 
-function FilmCard ({name, image}: FilmCardProps) : JSX.Element {
+function FilmCard({name, image}: FilmCardProps): JSX.Element {
   return (
     <article className="small-film-card catalog__films-card">
       <div className="small-film-card__image">

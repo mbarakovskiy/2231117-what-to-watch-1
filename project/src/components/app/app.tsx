@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AppRoute } from '../const';
 import MainPage from '../../pages/main/main';
 import {films} from '../../pages/main/films';
 import AddReview from '../../pages/add review/add-review';
@@ -5,8 +7,6 @@ import Film from '../../pages/film/film';
 import NotFound from '../../pages/not found/not-found';
 import Player from '../../pages/player/player';
 import SignIn from '../../pages/sign-in/sign-in';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { AppRoute } from '../const';
 
 function App(): JSX.Element {
   return (
