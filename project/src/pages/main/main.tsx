@@ -1,8 +1,9 @@
-import FilmCard, {FilmCardProps} from '../../components/filmCard/film-card';
 import Footer from '../../components/footer/footer';
+import {FilmData} from '../../types/film-data';
+import FilmsList from '../../components/films list/films-list';
 
 type MainPageProps = {
-  films: FilmCardProps[];
+  films: FilmData[];
   limit: number;
   name: string;
   genre: string;
@@ -111,9 +112,7 @@ function MainPage({films, limit, name, genre, year}: MainPageProps) : JSX.Elemen
 
           <div className="catalog__films-list">
             {
-              films.slice(0, limit).map(
-                (film) => <FilmCard key={film.name} name={film.name} image={film.image}/>
-              )
+              <FilmsList films={films.slice(0, limit)}/>
             }
           </div>
 

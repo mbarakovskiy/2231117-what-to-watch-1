@@ -1,9 +1,15 @@
 import Logo from '../../components/logo/logo';
 import Footer from '../../components/footer/footer';
 import FilmCard from '../../components/filmCard/film-card';
+import {FilmData} from "../../types/film-data";
+import FilmsList from "../../components/films list/films-list";
+
+type MyListProps = {
+  films: FilmData[];
+}
 
 
-function MyListPage(): JSX.Element {
+function MyListPage({films}: MyListProps): JSX.Element {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -26,42 +32,9 @@ function MyListPage(): JSX.Element {
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
         <div className="catalog__films-list">
-          <FilmCard
-            name={'Fantastic Beasts: The Crimes of Grindelwald'}
-            image={'img/fantastic-beasts-the-crimes-of-grindelwald.jpg'}
-          />
-          <FilmCard
-            name={'Bohemian Rhapsody'}
-            image={'img/bohemian-rhapsody.jpg'}
-          />
-          <FilmCard
-            name={'Macbeth'}
-            image={'img/macbeth.jpg'}
-          />
-          <FilmCard
-            name={'Aviator'}
-            image={'img/aviator.jpg'}
-          />
-          <FilmCard
-            name={'We need to talk about Kevin'}
-            image={'img/we-need-to-talk-about-kevin.jpg'}
-          />
-          <FilmCard
-            name={'What We Do in the Shadows'}
-            image={'img/what-we-do-in-the-shadows.jpg'}
-          />
-          <FilmCard
-            name={'Revenant'}
-            image={'img/revenant.jpg'}
-          />
-          <FilmCard
-            name={'Johnny English'}
-            image={'img/johnny-english.jpg'}
-          />
-          <FilmCard
-            name={'Shutter Island'}
-            image={'img/shutter-island.jpg'}
-          />
+          {
+            <FilmsList films={films.slice(0, 9)}/>
+          }
         </div>
       </section>
       <Footer/>

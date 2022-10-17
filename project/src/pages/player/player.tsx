@@ -1,7 +1,13 @@
-function Player(): JSX.Element {
+import {FilmData} from '../../types/film-data';
+
+type PlayerProps = {
+  film: FilmData;
+}
+
+function Player({film}: PlayerProps): JSX.Element {
   return (
     <div className="player">
-      <video src="#" className="player__video" poster="img/player-poster.jpg"></video>
+      <video src={film.videoLink} className="player__video" poster={film.previewLink}></video>
 
       <button type="button" className="player__exit">Exit</button>
 

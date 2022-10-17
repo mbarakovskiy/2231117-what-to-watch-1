@@ -1,17 +1,23 @@
+import {FilmData} from '../../types/film-data';
+
 export type FilmCardProps = {
-  name: string;
-  image: string;
+  filmData: FilmData;
+  setActive: (film: FilmData) => void;
 }
 
 
-function FilmCard({name, image}: FilmCardProps): JSX.Element {
+function FilmCard({filmData, setActive}: FilmCardProps): JSX.Element {
   return (
-    <article className="small-film-card catalog__films-card">
+    <article
+      className="small-film-card catalog__films-card"
+      onMouseEnter={() => setActive(filmData)}
+      onMouseLeave={() => setActive({} as FilmData)}
+    >
       <div className="small-film-card__image">
-        <img src={image} alt={name} width="280" height="175"/>
+        <img src={filmData.image} alt={filmData.name} width="280" height="175"/>
       </div>
       <h3 className="small-film-card__title">
-        <a className="small-film-card__link" href="film-page.html">{name}</a>
+        <a className="small-film-card__link" href="film-page.html">{filmData.name}</a>
       </h3>
     </article>
   );

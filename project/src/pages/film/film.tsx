@@ -1,20 +1,22 @@
 import Footer from '../../components/footer/footer';
 import Logo from '../../components/logo/logo';
-import FilmCard from '../../components/filmCard/film-card';
+import {FilmData} from '../../types/film-data';
+import FilmsList from '../../components/films list/films-list';
 
 type FilmProps = {
-  name: string;
+  film: FilmData;
   genre: string;
   year: number;
+  films: FilmData[];
 }
 
-function Film({name, genre, year}: FilmProps): JSX.Element {
+function Film({film, genre, year, films}: FilmProps): JSX.Element {
   return (
     <>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt={name}/>
+            <img src="img/bg-the-grand-budapest-hotel.jpg" alt={film.name}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -36,7 +38,7 @@ function Film({name, genre, year}: FilmProps): JSX.Element {
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">{name}</h2>
+              <h2 className="film-card__title">{film.name}</h2>
               <p className="film-card__meta">
                 <span className="film-card__genre">{genre}</span>
                 <span className="film-card__year">{year}</span>
@@ -121,23 +123,9 @@ function Film({name, genre, year}: FilmProps): JSX.Element {
           <h2 className="catalog__title">More like this</h2>
 
           <div className="catalog__films-list">
-
-            <FilmCard
-              name={'Fantastic Beasts: The Crimes of Grindelwald'}
-              image={'img/fantastic-beasts-the-crimes-of-grindelwald.jpg'}
-            />
-            <FilmCard
-              name={'Bohemian Rhapsody'}
-              image={'img/bohemian-rhapsody.jpg'}
-            />
-            <FilmCard
-              name={'Macbeth'}
-              image={'img/macbeth.jpg'}
-            />
-            <FilmCard
-              name={'Aviator'}
-              image={'img/aviator.jpg'}
-            />
+            {
+              <FilmsList films={films}/>
+            }
           </div>
         </section>
 
