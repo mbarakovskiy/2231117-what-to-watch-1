@@ -1,19 +1,19 @@
 import Logo from '../../components/logo/logo';
 import ReviewForm from '../../components/review form/review-form';
-import {FilmData} from '../../types/film-data';
+import {Film} from '../../types/film';
 import {Link} from 'react-router-dom';
 
-type AddReviewProps = {
-  film: FilmData;
+type Props = {
+  film: Film;
 }
 
 
-function AddReview({film}: AddReviewProps): JSX.Element {
+function AddReview({film}: Props): JSX.Element {
   return (
     <section className="film-card film-card--full">
       <div className="film-card__header">
         <div className="film-card__bg">
-          <img src={film.bg} alt={film.name}/>
+          <img src={film.backgroundImage} alt={film.name}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -45,7 +45,7 @@ function AddReview({film}: AddReviewProps): JSX.Element {
         </header>
 
         <div className="film-card__poster film-card__poster--small">
-          <img src={film.poster} alt={film.name} width="218" height="327"/>
+          <img src={film.posterImage} alt={film.name} width="218" height="327"/>
         </div>
       </div>
 

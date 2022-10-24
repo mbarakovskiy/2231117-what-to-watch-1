@@ -1,22 +1,22 @@
 import React, {useState} from 'react';
 import FilmCard from '../filmCard/film-card';
-import type {FilmData} from '../../types/film-data';
+import type {Film} from '../../types/film';
 
 type Props = {
-  films: FilmData[];
+  films: Film[];
 }
 
 const FilmList: React.FC<Props> = (props) => {
   const {films} = props;
   const [, setActive] = useState({});
 
-  const activeFilmHandler = (film: FilmData) => {
+  const handleFilmOnHover = (film: Film) => {
     setActive(film);
   };
 
   return (
     <div className="catalog__films-list">
-      {films.map((film) => <FilmCard key={film.id} filmData={film} setActive={activeFilmHandler}/>)}
+      {films.map((film) => <FilmCard key={film.id} film={film} onHover={handleFilmOnHover}/>)}
     </div>
   );
 };

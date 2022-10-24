@@ -1,14 +1,14 @@
 import Logo from '../../components/logo/logo';
 import Footer from '../../components/footer/footer';
-import {FilmData} from '../../types/film-data';
+import {Film} from '../../types/film';
 import FilmsList from '../../components/films list/films-list';
 
-type MyListProps = {
-  films: FilmData[];
+type Props = {
+  films: Film[];
 }
 
 
-function MyListPage({films}: MyListProps): JSX.Element {
+function MyListPage({films}: Props): JSX.Element {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">

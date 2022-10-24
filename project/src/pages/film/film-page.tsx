@@ -1,22 +1,20 @@
 import Footer from '../../components/footer/footer';
 import Logo from '../../components/logo/logo';
-import {FilmData} from '../../types/film-data';
+import {Film} from '../../types/film';
 import FilmsList from '../../components/films list/films-list';
 
-type FilmProps = {
-  film: FilmData;
-  genre: string;
-  year: number;
-  films: FilmData[];
+type Props = {
+  film: Film;
+  films: Film[];
 }
 
-function Film({film, genre, year, films}: FilmProps): JSX.Element {
+function FilmPage({film, films}: Props): JSX.Element {
   return (
     <>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt={film.name}/>
+            <img src={film.backgroundImage} alt={film.name}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -40,8 +38,8 @@ function Film({film, genre, year, films}: FilmProps): JSX.Element {
             <div className="film-card__desc">
               <h2 className="film-card__title">{film.name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{genre}</span>
-                <span className="film-card__year">{year}</span>
+                <span className="film-card__genre">{film.genre}</span>
+                <span className="film-card__year">{film.released}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -67,7 +65,7 @@ function Film({film, genre, year, films}: FilmProps): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218"
+              <img src={film.posterImage} alt={film.name} width="218"
                 height="327"
               />
             </div>
@@ -88,10 +86,10 @@ function Film({film, genre, year, films}: FilmProps): JSX.Element {
               </nav>
 
               <div className="film-rating">
-                <div className="film-rating__score">8,9</div>
+                <div className="film-rating__score">{film.rating}</div>
                 <p className="film-rating__meta">
                   <span className="film-rating__level">Very good</span>
-                  <span className="film-rating__count">240 ratings</span>
+                  <span className="film-rating__count">{film.scoresCount} ratings</span>
                 </p>
               </div>
 
@@ -106,11 +104,10 @@ function Film({film, genre, year, films}: FilmProps): JSX.Element {
                   Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.
                 </p>
 
-                <p className="film-card__director"><strong>Director: Wes Anderson</strong></p>
+                <p className="film-card__director"><strong>Director: {film.director}</strong></p>
 
                 <p className="film-card__starring">
-                  <strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe
-                    and other
+                  <strong>Starring: {film.starring}
                   </strong>
                 </p>
               </div>
@@ -135,4 +132,4 @@ function Film({film, genre, year, films}: FilmProps): JSX.Element {
   );
 }
 
-export default Film;
+export default FilmPage;

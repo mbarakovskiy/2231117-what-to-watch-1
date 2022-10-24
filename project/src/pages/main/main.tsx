@@ -1,21 +1,19 @@
 import Footer from '../../components/footer/footer';
-import {FilmData} from '../../types/film-data';
+import {Film} from '../../types/film';
 import FilmsList from '../../components/films list/films-list';
 
-type MainPageProps = {
-  films: FilmData[];
+type Props = {
+  film: Film;
+  films: Film[];
   limit: number;
-  name: string;
-  genre: string;
-  year: number;
 }
 
-function MainPage({films, limit, name, genre, year}: MainPageProps) : JSX.Element {
+function MainPage({film, films, limit}: Props) : JSX.Element {
   return (
     <>
       <section className="film-card">
         <div className="film-card__bg">
-          <img src={'img/bg-the-grand-budapest-hotel.jpg'} alt={name}/>
+          <img src={film.backgroundImage} alt={film.name}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -44,14 +42,14 @@ function MainPage({films, limit, name, genre, year}: MainPageProps) : JSX.Elemen
         <div className="film-card__wrap">
           <div className="film-card__info">
             <div className="film-card__poster">
-              <img src={'img/the-grand-budapest-hotel-poster.jpg'} alt="The Grand Budapest Hotel poster" width="218" height="327"/>
+              <img src={film.posterImage} alt={film.name} width="218" height="327"/>
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">{name}</h2>
+              <h2 className="film-card__title">{film.name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{genre}</span>
-                <span className="film-card__year">{year}</span>
+                <span className="film-card__genre">{film.genre}</span>
+                <span className="film-card__year">{film.released}</span>
               </p>
 
               <div className="film-card__buttons">
