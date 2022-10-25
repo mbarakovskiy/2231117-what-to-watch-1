@@ -120,7 +120,7 @@ function FilmPage({film, films}: Props): JSX.Element {
           <h2 className="catalog__title">More like this</h2>
 
           <div className="catalog__films-list">
-              <FilmsList films={films}/>
+            <FilmsList films={films}/>
           </div>
         </section>
 

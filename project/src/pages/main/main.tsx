@@ -109,7 +109,7 @@ function MainPage({film, films, limit}: Props) : JSX.Element {
           </ul>
 
           <div className="catalog__films-list">
-              <FilmsList films={films.slice(0, limit)}/>
+            <FilmsList films={films.slice(0, limit)}/>
           </div>
 
           <div className="catalog__more">
