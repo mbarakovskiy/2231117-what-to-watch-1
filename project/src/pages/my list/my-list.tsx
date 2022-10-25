@@ -31,9 +31,7 @@ function MyListPage({films}: Props): JSX.Element {
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
         <div className="catalog__films-list">
-          {
             <FilmsList films={films.slice(0, 9)}/>
-          }
         </div>
       </section>
       <Footer/>

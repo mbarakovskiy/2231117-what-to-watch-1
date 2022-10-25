@@ -12,7 +12,7 @@ function SignInPage() : JSX.Element {
       </header>
 
       <div className="sign-in user-page__content">
-        <form action="#" className="sign-in__form">
+        <form action="/" className="sign-in__form">
           <div className="sign-in__fields">
             <div className="sign-in__field">
               <input className="sign-in__input" type="email" placeholder="Email address" name="user-email"

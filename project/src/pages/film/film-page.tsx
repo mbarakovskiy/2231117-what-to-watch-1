@@ -51,7 +51,7 @@ function FilmPage({film, films}: Props): JSX.Element {
                 </button>
                 <button className="btn btn--list film-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
+                    <use xlinkHref="/add"></use>
                   </svg>
                   <span>My list</span>
                   <span className="film-card__count">9</span>
@@ -74,13 +74,13 @@ function FilmPage({film, films}: Props): JSX.Element {
               <nav className="film-nav film-card__nav">
                 <ul className="film-nav__list">
                   <li className="film-nav__item film-nav__item--active">
-                    <a href="#" className="film-nav__link">Overview</a>
+                    <a href="/" className="film-nav__link">Overview</a>
                   </li>
                   <li className="film-nav__item">
-                    <a href="#" className="film-nav__link">Details</a>
+                    <a href="/" className="film-nav__link">Details</a>
                   </li>
                   <li className="film-nav__item">
-                    <a href="#" className="film-nav__link">Reviews</a>
+                    <a href="/" className="film-nav__link">Reviews</a>
                   </li>
                 </ul>
               </nav>
@@ -120,9 +120,7 @@ function FilmPage({film, films}: Props): JSX.Element {
           <h2 className="catalog__title">More like this</h2>
 
           <div className="catalog__films-list">
-            {
               <FilmsList films={films}/>
-            }
           </div>
         </section>
 

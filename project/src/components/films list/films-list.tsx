@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState, FC} from 'react';
 import FilmCard from '../filmCard/film-card';
 import type {Film} from '../../types/film';
 
@@ -6,7 +6,7 @@ type Props = {
   films: Film[];
 }
 
-const FilmList: React.FC<Props> = (props) => {
+const FilmList: FC<Props> = (props) => {
   const {films} = props;
   const [, setActive] = useState({});
 
