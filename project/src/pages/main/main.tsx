@@ -1,20 +1,19 @@
-import FilmCard, {FilmCardProps} from '../../components/filmCard/film-card';
 import Footer from '../../components/footer/footer';
+import {Film} from '../../types/film';
+import FilmsList from '../../components/films list/films-list';
 
-type MainPageProps = {
-  films: FilmCardProps[];
+type Props = {
+  film: Film;
+  films: Film[];
   limit: number;
-  name: string;
-  genre: string;
-  year: number;
 }
 
-function MainPage({films, limit, name, genre, year}: MainPageProps) : JSX.Element {
+function MainPage({film, films, limit}: Props) : JSX.Element {
   return (
     <>
       <section className="film-card">
         <div className="film-card__bg">
-          <img src={'img/bg-the-grand-budapest-hotel.jpg'} alt={name}/>
+          <img src={film.backgroundImage} alt={film.name}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -43,14 +42,14 @@ function MainPage({films, limit, name, genre, year}: MainPageProps) : JSX.Elemen
         <div className="film-card__wrap">
           <div className="film-card__info">
             <div className="film-card__poster">
-              <img src={'img/the-grand-budapest-hotel-poster.jpg'} alt="The Grand Budapest Hotel poster" width="218" height="327"/>
+              <img src={film.posterImage} alt={film.name} width="218" height="327"/>
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">{name}</h2>
+              <h2 className="film-card__title">{film.name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{genre}</span>
-                <span className="film-card__year">{year}</span>
+                <span className="film-card__genre">{film.genre}</span>
+                <span className="film-card__year">{film.released}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -78,43 +77,39 @@ function MainPage({films, limit, name, genre, year}: MainPageProps) : JSX.Elemen
 
           <ul className="catalog__genres-list">
             <li className="catalog__genres-item catalog__genres-item--active">
-              <a href="#" className="catalog__genres-link">All genres</a>
+              <a href="/" className="catalog__genres-link">All genres</a>
             </li>
             <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Comedies</a>
+              <a href="/" className="catalog__genres-link">Comedies</a>
             </li>
             <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Crime</a>
+              <a href="/" className="catalog__genres-link">Crime</a>
             </li>
             <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Documentary</a>
+              <a href="/" className="catalog__genres-link">Documentary</a>
             </li>
             <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Dramas</a>
+              <a href="/" className="catalog__genres-link">Dramas</a>
             </li>
             <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Horror</a>
+              <a href="/" className="catalog__genres-link">Horror</a>
             </li>
             <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Kids & Family</a>
+              <a href="/" className="catalog__genres-link">Kids & Family</a>
             </li>
             <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Romance</a>
+              <a href="/" className="catalog__genres-link">Romance</a>
             </li>
             <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Sci-Fi</a>
+              <a href="/" className="catalog__genres-link">Sci-Fi</a>
             </li>
             <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Thrillers</a>
+              <a href="/" className="catalog__genres-link">Thrillers</a>
             </li>
           </ul>
 
           <div className="catalog__films-list">
-            {
-              films.slice(0, limit).map(
-                (film) => <FilmCard key={film.name} name={film.name} image={film.image}/>
-              )
-            }
+            <FilmsList films={films.slice(0, limit)}/>
           </div>
 
           <div className="catalog__more">

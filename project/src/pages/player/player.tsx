@@ -1,7 +1,13 @@
-function Player(): JSX.Element {
+import {Film} from '../../types/film';
+
+type Props = {
+  film: Film;
+}
+
+function Player({film}: Props): JSX.Element {
   return (
     <div className="player">
-      <video src="#" className="player__video" poster="img/player-poster.jpg"></video>
+      <video src={film.videoLink} className="player__video" poster={film.previewVideoLink}></video>
 
       <button type="button" className="player__exit">Exit</button>
 
@@ -25,7 +31,7 @@ function Player(): JSX.Element {
 
           <button type="button" className="player__full-screen">
             <svg viewBox="0 0 27 27" width="27" height="27">
-              <use xlinkHref="#full-screen"></use>
+              <use xlinkHref="/full-screen"></use>
             </svg>
             <span>Full screen</span>
           </button>

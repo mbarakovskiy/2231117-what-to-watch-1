@@ -1,20 +1,20 @@
 import Footer from '../../components/footer/footer';
 import Logo from '../../components/logo/logo';
-import FilmCard from '../../components/filmCard/film-card';
+import {Film} from '../../types/film';
+import FilmsList from '../../components/films list/films-list';
 
-type FilmProps = {
-  name: string;
-  genre: string;
-  year: number;
+type Props = {
+  film: Film;
+  films: Film[];
 }
 
-function Film({name, genre, year}: FilmProps): JSX.Element {
+function FilmPage({film, films}: Props): JSX.Element {
   return (
     <>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt={name}/>
+            <img src={film.backgroundImage} alt={film.name}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -36,10 +36,10 @@ function Film({name, genre, year}: FilmProps): JSX.Element {
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">{name}</h2>
+              <h2 className="film-card__title">{film.name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{genre}</span>
-                <span className="film-card__year">{year}</span>
+                <span className="film-card__genre">{film.genre}</span>
+                <span className="film-card__year">{film.released}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -51,7 +51,7 @@ function Film({name, genre, year}: FilmProps): JSX.Element {
                 </button>
                 <button className="btn btn--list film-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
+                    <use xlinkHref="/add"></use>
                   </svg>
                   <span>My list</span>
                   <span className="film-card__count">9</span>
@@ -65,7 +65,7 @@ function Film({name, genre, year}: FilmProps): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218"
+              <img src={film.posterImage} alt={film.name} width="218"
                 height="327"
               />
             </div>
@@ -74,22 +74,22 @@ function Film({name, genre, year}: FilmProps): JSX.Element {
               <nav className="film-nav film-card__nav">
                 <ul className="film-nav__list">
                   <li className="film-nav__item film-nav__item--active">
-                    <a href="#" className="film-nav__link">Overview</a>
+                    <a href="/" className="film-nav__link">Overview</a>
                   </li>
                   <li className="film-nav__item">
-                    <a href="#" className="film-nav__link">Details</a>
+                    <a href="/" className="film-nav__link">Details</a>
                   </li>
                   <li className="film-nav__item">
-                    <a href="#" className="film-nav__link">Reviews</a>
+                    <a href="/" className="film-nav__link">Reviews</a>
                   </li>
                 </ul>
               </nav>
 
               <div className="film-rating">
-                <div className="film-rating__score">8,9</div>
+                <div className="film-rating__score">{film.rating}</div>
                 <p className="film-rating__meta">
                   <span className="film-rating__level">Very good</span>
-                  <span className="film-rating__count">240 ratings</span>
+                  <span className="film-rating__count">{film.scoresCount} ratings</span>
                 </p>
               </div>
 
@@ -104,11 +104,10 @@ function Film({name, genre, year}: FilmProps): JSX.Element {
                   Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.
                 </p>
 
-                <p className="film-card__director"><strong>Director: Wes Anderson</strong></p>
+                <p className="film-card__director"><strong>Director: {film.director}</strong></p>
 
                 <p className="film-card__starring">
-                  <strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe
-                    and other
+                  <strong>Starring: {film.starring}
                   </strong>
                 </p>
               </div>
@@ -121,23 +120,7 @@ function Film({name, genre, year}: FilmProps): JSX.Element {
           <h2 className="catalog__title">More like this</h2>
 
           <div className="catalog__films-list">
-
-            <FilmCard
-              name={'Fantastic Beasts: The Crimes of Grindelwald'}
-              image={'img/fantastic-beasts-the-crimes-of-grindelwald.jpg'}
-            />
-            <FilmCard
-              name={'Bohemian Rhapsody'}
-              image={'img/bohemian-rhapsody.jpg'}
-            />
-            <FilmCard
-              name={'Macbeth'}
-              image={'img/macbeth.jpg'}
-            />
-            <FilmCard
-              name={'Aviator'}
-              image={'img/aviator.jpg'}
-            />
+            <FilmsList films={films}/>
           </div>
         </section>
 
@@ -147,4 +130,4 @@ function Film({name, genre, year}: FilmProps): JSX.Element {
   );
 }
 
-export default Film;
+export default FilmPage;
