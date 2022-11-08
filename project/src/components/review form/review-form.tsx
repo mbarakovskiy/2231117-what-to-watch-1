@@ -65,7 +65,7 @@ function ReviewForm(): JSX.Element {
           className="add-review__textarea"
           name="review-text"
           value={formValue.reviewText}
-          placeholder="Review text"
+          placeholder="ReviewType text"
           onChange={handleChangeComment}
         />
         <div className="add-review__submit">
