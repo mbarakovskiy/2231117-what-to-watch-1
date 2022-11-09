@@ -1,4 +1,4 @@
-import { ReviewType as ReviewType } from '../../types/review-type';
+import { ReviewType } from '../../types/review-type';
 
 type Props = {
   review: ReviewType;
