@@ -1,11 +1,9 @@
 import { ReviewType } from '../../types/review-type';
 import Review from '../review/review';
 
-
 export type Props = {
   reviews: ReviewType[];
 }
-
 
 function ReviewsTab({reviews}: Props): JSX.Element {
   return (

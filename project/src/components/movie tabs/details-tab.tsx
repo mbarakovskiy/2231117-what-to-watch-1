@@ -1,10 +1,8 @@
 import {Film} from '../../types/film';
 
-
 export type Props = {
   film: Film;
 }
-
 
 function DetailsTab({film}: Props): JSX.Element {
   return (
