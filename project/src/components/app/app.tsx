@@ -22,8 +22,6 @@ function App({promoFilm, films, reviews}: Props): JSX.Element {
         <Route path={AppRoute.MainPage} element={
           <MainPage
             film={promoFilm}
-            films={films}
-            limit={films.length}
           />
         }
         />
