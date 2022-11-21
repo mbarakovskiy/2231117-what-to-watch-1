@@ -39,7 +39,7 @@ export const films: Film[] = [
       'Bill Murray'
     ],
     runTime: 99,
-    genre: 'Comedy',
+    genre: 'Drama',
     released: 2014,
     isFavorite: false
   },
@@ -228,7 +228,7 @@ export const films: Film[] = [
       'Bill Murray'
     ],
     runTime: 99,
-    genre: 'Comedy',
+    genre: 'Drama',
     released: 2014,
     isFavorite: false
   },
