@@ -15,3 +15,4 @@ export enum AuthorizationStatus {
 }
 
 export const ALL_GENRES = 'All Genres';
+export const VISIBLE_FILMS_STEP = 8;
