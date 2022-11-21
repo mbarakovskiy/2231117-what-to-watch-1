@@ -108,9 +108,7 @@ function MainPage({film, films, limit}: Props) : JSX.Element {
             </li>
           </ul>
 
-          <div className="catalog__films-list">
-            <FilmsList films={films.slice(0, limit)}/>
-          </div>
+          <FilmsList films={films.slice(0, limit)}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

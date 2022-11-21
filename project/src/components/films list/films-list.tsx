@@ -1,4 +1,4 @@
-import {useState, FC} from 'react';
+import {useState} from 'react';
 import FilmCard from '../filmCard/film-card';
 import type {Film} from '../../types/film';
 
@@ -6,8 +6,7 @@ type Props = {
   films: Film[];
 }
 
-const FilmList: FC<Props> = (props) => {
-  const {films} = props;
+function FilmList({films}: Props): JSX.Element {
   const [, setActive] = useState({});
 
   const handleFilmOnHover = (film: Film) => {
@@ -19,6 +18,6 @@ const FilmList: FC<Props> = (props) => {
       {films.map((film) => <FilmCard key={film.id} film={film} onHover={handleFilmOnHover}/>)}
     </div>
   );
-};
+}
 
 export default FilmList;

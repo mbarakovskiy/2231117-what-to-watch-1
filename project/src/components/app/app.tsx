@@ -7,13 +7,15 @@ import NotFound from '../../pages/not found/not-found';
 import Player from '../../pages/player/player';
 import SignIn from '../../pages/sign-in/sign-in';
 import {Film} from '../../types/film';
+import {ReviewType} from '../../types/review-type';
 
 type Props = {
   promoFilm: Film;
   films: Film[];
+  reviews: ReviewType[];
 }
 
-function App({promoFilm, films}: Props): JSX.Element {
+function App({promoFilm, films, reviews}: Props): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
@@ -26,7 +28,7 @@ function App({promoFilm, films}: Props): JSX.Element {
         }
         />
         <Route path={AppRoute.SignIn} element={<SignIn />} />
-        <Route path={AppRoute.Film} element={<FilmPage film={promoFilm} films={films}/>} />
+        <Route path={AppRoute.Film} element={<FilmPage film={promoFilm} films={films} reviews={reviews}/>} />
         <Route path={AppRoute.AddReview} element={<AddReview film={films[0]} />} />
         <Route path={AppRoute.Player} element={<Player film={films[0]}/>} />
         <Route path={AppRoute.Default} element={<NotFound />} />
