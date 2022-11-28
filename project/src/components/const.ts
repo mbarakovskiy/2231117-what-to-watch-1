@@ -16,3 +16,7 @@ export enum AuthorizationStatus {
 
 export const ALL_GENRES = 'All Genres';
 export const SHOWN_FILMS_STEP = 8;
+
+export enum APIRoute {
+  Films = '/films'
+}
