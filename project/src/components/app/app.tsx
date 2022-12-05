@@ -7,15 +7,17 @@ import NotFound from '../../pages/not found/not-found';
 import Player from '../../pages/player/player';
 import SignIn from '../../pages/sign-in/sign-in';
 import {ReviewType} from '../../types/review-type';
-import { useAppSelector } from '../../hooks/index';
-import Loader from "../loader/loader";
+import { useAppSelector } from '../../hooks/hooks';
+import Loader from '../loader/loader';
+import PrivateRoute from '../private routes/private-routes';
+import MyListPage from '../../pages/my list/my-list';
 
 type Props = {
   reviews: ReviewType[];
 }
 
 function App({reviews}: Props): JSX.Element {
-  const { isDataLoaded, films } = useAppSelector((state) => state);
+  const { isDataLoaded, films, authorizationStatus } = useAppSelector((state) => state);
 
   if (!isDataLoaded) {
     return <Loader/>;
@@ -23,7 +25,7 @@ function App({reviews}: Props): JSX.Element {
 
   return (
     <BrowserRouter>
-      <Routes>
+      <>
         <Route path={AppRoute.MainPage} element={
           <MainPage
             film={films[0]}
@@ -35,7 +37,12 @@ function App({reviews}: Props): JSX.Element {
         <Route path={AppRoute.AddReview} element={<AddReview film={films[0]} />} />
         <Route path={AppRoute.Player} element={<Player film={films[0]}/>} />
         <Route path={AppRoute.Default} element={<NotFound />} />
-      </Routes>
+        <Route path={AppRoute.MyList} element={
+          <PrivateRoute authorizationStatus={authorizationStatus}>
+            <MyListPage films={films} />
+          </PrivateRoute>
+        } />
+      </>
     </BrowserRouter>
   );
 }
