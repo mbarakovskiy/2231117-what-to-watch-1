@@ -1,4 +1,3 @@
-import axios, { AxiosInstance } from 'axios';
 const AUTH_TOKEN_KEY = 'universal-token';
 
 export const createToken = (): string => {

@@ -25,7 +25,7 @@ function App({reviews}: Props): JSX.Element {
 
   return (
     <BrowserRouter>
-      <>
+      <Routes>
         <Route path={AppRoute.MainPage} element={
           <MainPage
             film={films[0]}
@@ -41,8 +41,9 @@ function App({reviews}: Props): JSX.Element {
           <PrivateRoute authorizationStatus={authorizationStatus}>
             <MyListPage films={films} />
           </PrivateRoute>
-        } />
-      </>
+        }
+        />
+      </Routes>
     </BrowserRouter>
   );
 }
