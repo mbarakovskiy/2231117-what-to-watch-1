@@ -1,8 +1,8 @@
-import {StrictMode} from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
-import {Provider} from 'react-redux';
-import {store} from './store';
+import { Provider } from 'react-redux';
+import { store } from './store';
 import { checkAuthAction, fetchFilmsAction } from './store/api-actions';
 
 store.dispatch(checkAuthAction());

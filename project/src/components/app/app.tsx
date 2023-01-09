@@ -6,7 +6,7 @@ import FilmPage from '../../pages/film/film-page';
 import NotFound from '../../pages/not found/not-found';
 import Player from '../../pages/player/player';
 import SignIn from '../../pages/sign-in/sign-in';
-import {ReviewType} from '../../types/review-type';
+import { ReviewType } from '../../types/review-type';
 import { useAppSelector } from '../../hooks/hooks';
 import Loader from '../loader/loader';
 import PrivateRoute from '../private routes/private-routes';
