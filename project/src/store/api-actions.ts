@@ -5,8 +5,8 @@ import { Film } from '../types/film';
 import { APIRoute, AuthorizationStatus } from '../components/const';
 import { fillFilms, setDataLoadedStatus, changeAuthorizationStatus, setUser } from './action';
 import { saveToken, dropToken } from '../services/token';
-import {User} from '../types/user';
-import {AuthData} from '../types/auth-data';
+import { User } from '../types/user';
+import { AuthData } from '../types/auth-data';
 
 export const fetchFilmsAction = createAsyncThunk<void, undefined, {
   dispatch: AppDispatch;

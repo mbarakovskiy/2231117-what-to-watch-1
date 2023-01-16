@@ -1,6 +1,6 @@
 import {Film} from '../../types/film';
 import {useEffect, useState} from 'react';
-import VideoPlayer from '../video player/video-player';
+import VideoPlayer from '../video-player/video-player';
 
 export type Props = {
   film: Film;

@@ -1,12 +1,12 @@
 import Footer from '../../components/footer/footer';
-import {Film} from '../../types/film';
-import FilmsList from '../../components/films list/films-list';
-import GenresList from '../../components/genres list/genres-list';
-import {useAppSelector} from '../../hooks/hooks';
-import {ALL_GENRES, SHOWN_FILMS_STEP} from '../../components/const';
-import {useState} from 'react';
-import ShowMore from '../../components/show more/show-more';
-import UserBlock from '../../components/user block/user-block';
+import { Film } from '../../types/film';
+import FilmsList from '../../components/films-list/films-list';
+import GenresList from '../../components/genres-list/genres-list';
+import { useAppSelector } from '../../hooks/hooks';
+import { ALL_GENRES, SHOWN_FILMS_STEP } from '../../components/const';
+import { useState } from 'react';
+import ShowMore from '../../components/show-more/show-more';
+import UserBlock from '../../components/user-block/user-block';
 
 type Props = {
   film: Film;

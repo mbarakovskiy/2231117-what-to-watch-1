@@ -1,8 +1,8 @@
 import Logo from '../../components/logo/logo';
 import Footer from '../../components/footer/footer';
-import {Film} from '../../types/film';
-import FilmsList from '../../components/films list/films-list';
-import UserBlock from '../../components/user block/user-block';
+import { Film } from '../../types/film';
+import FilmsList from '../../components/films-list/films-list';
+import UserBlock from '../../components/user-block/user-block';
 
 type Props = {
   films: Film[];
