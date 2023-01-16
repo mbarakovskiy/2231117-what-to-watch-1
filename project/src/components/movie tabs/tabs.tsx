@@ -1,8 +1,8 @@
-import {Film} from '../../types/film';
+import { Film } from '../../types/film';
 import DetailsTab from './details-tab';
 import ReviewsTab from './reviews-tab';
-import {useState} from 'react';
-import {ReviewType} from '../../types/review-type';
+import { useState } from 'react';
+import { ReviewType } from '../../types/review-type';
 import OverviewTab from './overview-tab';
 
 type Props = {

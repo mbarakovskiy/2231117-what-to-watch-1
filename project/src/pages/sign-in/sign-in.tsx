@@ -1,10 +1,10 @@
 import Logo from '../../components/logo/logo';
 import Footer from '../../components/footer/footer';
-import {useAppDispatch, useAppSelector} from '../../hooks/hooks';
-import {useNavigate} from 'react-router-dom';
-import {AppRoute, AuthorizationStatus} from '../../components/const';
-import {FormEvent, useRef} from 'react';
-import {loginAction} from '../../store/api-actions';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { useNavigate } from 'react-router-dom';
+import { AppRoute, AuthorizationStatus } from '../../components/const';
+import { FormEvent, useRef } from 'react';
+import { loginAction } from '../../store/api-actions';
 
 
 function SignInPage() : JSX.Element {

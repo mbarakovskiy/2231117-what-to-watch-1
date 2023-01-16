@@ -5,7 +5,8 @@ export enum AppRoute {
   Film = '/films/:id',
   AddReview = '/films/:id/review',
   Player = '/player/:id',
-  Default = '*'
+  Default = '*',
+  NotFound = '/404-not-found'
 }
 
 export enum AuthorizationStatus {

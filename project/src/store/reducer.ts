@@ -1,8 +1,8 @@
-import {createReducer} from '@reduxjs/toolkit';
-import {changeAuthorizationStatus, changeGenre, fillFilms, setDataLoadedStatus, setUser} from './action';
-import {Film} from '../types/film';
-import {ALL_GENRES, AuthorizationStatus} from '../components/const';
-import {User} from '../types/user';
+import { createReducer } from '@reduxjs/toolkit';
+import { changeAuthorizationStatus, changeGenre, fillFilms, setDataLoadedStatus, setUser } from './action';
+import { Film } from '../types/film';
+import { ALL_GENRES, AuthorizationStatus } from '../components/const';
+import { User } from '../types/user';
 
 type AppState = {
   films: Film[];
