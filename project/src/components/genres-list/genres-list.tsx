@@ -1,27 +1,39 @@
 import { useAppDispatch } from '../../hooks/hooks';
 import { changeGenre } from '../../store/action';
+import { MouseEvent } from 'react';
 
 type Props = {
   genres: string[];
   activeGenre: string;
 };
 
-function GenresList({genres, activeGenre}: Props): JSX.Element {
+type GenresProps = {
+  genre: string;
+  isActive: boolean;
+};
+
+function GenreElement({genre, isActive}: GenresProps): JSX.Element {
   const dispatch = useAppDispatch();
 
-  const handleGenreChange = (genre: string) => {
+  const handleGenreChange = (evt: MouseEvent<HTMLAnchorElement>) => {
+    evt.preventDefault();
     dispatch(changeGenre(genre));
-    //dispatch(fillFilms(films.filter((film-page) => film-page.genre === genre || genre === ALL_GENRES)));
   };
 
   return (
+    <li className={`catalog__genres-item ${isActive ? 'catalog__genres-item--active' : ''}`}>
+      <a href='#' className='catalog__genres-link' onClick={handleGenreChange}>{genre}</a>
+    </li>
+  );
+}
+
+function GenresList({genres, activeGenre}: Props): JSX.Element {
+  return (
     <ul className="catalog__genres-list">
       {
-        genres.map((genre) => (
-          <li className={`catalog__genres-item ${activeGenre === genre ? 'catalog__genres-item--active' : ''}`} key={genre} onClick={() => handleGenreChange(genre)}>
-            <span className="catalog__genres-link">{genre}</span>
-          </li>
-        ))
+        genres.map((genre) =>
+          <GenreElement genre={genre} isActive={genre === activeGenre} key={genre}/>
+        )
       }
     </ul>
   );

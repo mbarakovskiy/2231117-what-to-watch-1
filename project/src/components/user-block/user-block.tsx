@@ -8,7 +8,7 @@ export type Props = {
   avatar: string;
 }
 
-function AuthedUserBlock({avatar}: Props): JSX.Element {
+function AuthedUserBlock({ avatar }: Props): JSX.Element {
   const dispatch = useAppDispatch();
 
   const handleSignOutClick = (e: MouseEvent<HTMLAnchorElement>) => {
