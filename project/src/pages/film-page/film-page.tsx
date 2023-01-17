@@ -14,6 +14,7 @@ import { AxiosError } from 'axios';
 import { redirectToRoute } from '../../store/action';
 import Loader from '../../components/loader/loader';
 import { api } from '../../services/api';
+import MyListButton from '../../components/my-list-button/my-list-button';
 
 const MAX_SIMILAR_FILMS_COUNT = 4;
 
@@ -99,13 +100,10 @@ function FilmPage(): JSX.Element {
                   </svg>
                   <span>Play</span>
                 </button>
-                <button className="btn btn--list film-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="/add"></use>
-                  </svg>
-                  <span>My list</span>
-                  <span className="film-card__count">9</span>
-                </button>
+                {
+                  film
+                  && <MyListButton filmId={film.id} />
+                }
                 {
                   authorizationStatus === AuthorizationStatus.Auth &&
                   <Link to={id ? `/films/${id}/review` : '#'} className="btn film-card__button">Add review</Link>

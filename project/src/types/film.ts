@@ -15,5 +15,5 @@ export type Film = {
   runTime: number;
   genre: string;
   released: number;
-  isFavorite: boolean;
+  isFavourite: boolean;
 }

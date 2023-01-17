@@ -19,10 +19,12 @@ function SignInPage() : JSX.Element {
 
   const dispatch = useAppDispatch();
 
+  const isPasswordValid = (password: string) => password.match(/\w/) && password.match(/\d/);
+
   const handleFormSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
 
-    if (loginRef.current !== null && passwordRef.current !== null){
+    if (loginRef.current !== null && passwordRef.current !== null && isPasswordValid(passwordRef.current.value)){
       dispatch(loginAction({
         login: loginRef.current.value,
         password: passwordRef.current.value

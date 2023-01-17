@@ -19,9 +19,9 @@ function AuthedUserBlock({ avatar }: Props): JSX.Element {
     <>
       <li className="user-block__item">
         <div className="user-block__avatar">
-          <a href={AppRoute.MyList}>
+          <Link to={AppRoute.MyList}>
             <img src={avatar} alt="User avatar" width="63" height="63"/>
-          </a>
+          </Link>
         </div>
       </li>
       <li className="user-block__item">

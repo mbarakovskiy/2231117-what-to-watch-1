@@ -10,6 +10,7 @@ import UserBlock from '../../components/user-block/user-block';
 import { redirectToRoute } from '../../store/action';
 import { api } from '../../services/api';
 import Logo from '../../components/logo/logo';
+import MyListButton from '../../components/my-list-button/my-list-button';
 
 function MainPage() : JSX.Element {
   const [promoFilm, setPromoFilm] = useState<Film | null>(null);
@@ -80,13 +81,10 @@ function MainPage() : JSX.Element {
                   </svg>
                   <span>Play</span>
                 </button>
-                <button className="btn btn--list film-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                  <span className="film-card__count">9</span>
-                </button>
+                {
+                  promoFilm
+                  && <MyListButton filmId={promoFilm.id}/>
+                }
               </div>
             </div>
           </div>
