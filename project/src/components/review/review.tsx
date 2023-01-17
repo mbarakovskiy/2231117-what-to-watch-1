@@ -4,7 +4,7 @@ type Props = {
   review: ReviewType;
 }
 
-function Review({review}: Props): JSX.Element {
+function Review({ review }: Props): JSX.Element {
   return (
     <div className="review">
       <blockquote className="review__quote">

@@ -39,11 +39,12 @@ function FilmCard({film, onHover}: Props): JSX.Element {
     >
       <div className="small-film-card__image">
         <VideoPlayer
-          film={film}
+          posterImage={film.previewImage}
           isPlaying={isVideoPlaying}
           muted
           width={280}
           height={175}
+          src={film.videoLink}
         />
       </div>
       <h3 className="small-film-card__title">

@@ -1,5 +1,6 @@
-import { Fragment, useState, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import { ReviewData } from '../../types/review-data';
+import RatingStar from './star-rating';
 
 const MAX_STARS_COUNT = 10;
 const MAX_COMMENT_LEN = 400;
@@ -22,34 +23,24 @@ function ReviewForm({disabled, onSubmit}: Props): JSX.Element {
     setComment(evt.target.value);
   };
 
-  const handleChangeRating = (evt: ChangeEvent<HTMLInputElement>) => {
-    const value = parseInt(evt.target.value, 10);
-    setRating(value);
+  const handleChangeRating = (newRating: number) => {
+    setRating(newRating);
   };
 
   const isSubmitDisabled = comment.length < MIN_COMMENT_LEN || comment.length > MAX_COMMENT_LEN || disabled;
 
-  const ratingStars = [Array(MAX_STARS_COUNT).keys()].map((_, index) => {
-    const currentStar = MAX_STARS_COUNT - index;
-
-    return (
-      <Fragment key={currentStar}>
-        <input
-          id={`star-${currentStar}}`}
-          className="rating__input"
-          name="rating"
-          value={currentStar}
-          type="radio"
+  const ratingStars = [Array(MAX_STARS_COUNT).keys()]
+    .map((_, index) =>
+      (
+        <RatingStar
+          rating={index + 1}
+          isChosen={starsCount === (index + 1)}
           onChange={handleChangeRating}
+          key={index}
         />
-        <label
-          className="rating__label"
-          htmlFor={`star-${currentStar}}`}
-        >Rating {index}
-        </label>
-      </Fragment>
-    );
-  });
+      )
+    )
+    .reverse();
 
   return (
     <form className="add-review__form" onSubmit={handleReviewSubmit}>
@@ -72,7 +63,6 @@ function ReviewForm({disabled, onSubmit}: Props): JSX.Element {
         <div className="add-review__submit">
           <button className="add-review__btn" disabled={isSubmitDisabled} type="submit">Post</button>
         </div>
-
       </div>
     </form>
   );
