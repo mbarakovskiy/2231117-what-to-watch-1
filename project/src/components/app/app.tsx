@@ -10,8 +10,8 @@ import { useAppSelector } from '../../hooks/hooks';
 import Loader from '../loader/loader';
 import PrivateRoute from '../private-routes/private-routes';
 import MyListPage from '../../pages/my-list/my-list';
-import HistoryRouter from "../history-router/history-router";
-import browserHistory from "../../browser-history";
+import HistoryRouter from '../history-router/history-router';
+import browserHistory from '../../browser-history';
 
 function App(): JSX.Element {
   const { isDataLoaded, films, authorizationStatus } = useAppSelector((state) => state);
