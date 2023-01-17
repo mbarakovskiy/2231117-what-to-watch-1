@@ -33,7 +33,8 @@ function MainPage() : JSX.Element {
     }
 
     dispatch(redirectToRoute(`/player/${promoFilm.id}`));
-  }
+  };
+
   useEffect(() => {
     const fetchPromoFilm = async () => {
       const { data: actualPromoFilm } = await api.get<Film>(APIRoute.Promo);

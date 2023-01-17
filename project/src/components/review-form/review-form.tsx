@@ -36,7 +36,7 @@ function ReviewForm({disabled, onSubmit}: Props): JSX.Element {
           rating={index + 1}
           isChosen={starsCount === (index + 1)}
           onChange={handleChangeRating}
-          key={index}
+          key={index} // eslint-disable-line react/no-array-index-key
         />
       )
     )

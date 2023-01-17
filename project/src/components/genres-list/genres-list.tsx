@@ -1,6 +1,7 @@
 import { useAppDispatch } from '../../hooks/hooks';
 import { changeGenre } from '../../store/action';
 import { MouseEvent } from 'react';
+import { AppRoute } from '../const';
 
 type Props = {
   genres: string[];
@@ -22,7 +23,7 @@ function GenreElement({genre, isActive}: GenresProps): JSX.Element {
 
   return (
     <li className={`catalog__genres-item ${isActive ? 'catalog__genres-item--active' : ''}`}>
-      <a href='#' className='catalog__genres-link' onClick={handleGenreChange}>{genre}</a>
+      <a href={AppRoute.MainPage} className='catalog__genres-link' onClick={handleGenreChange}>{genre}</a>
     </li>
   );
 }

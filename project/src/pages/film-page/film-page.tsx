@@ -66,7 +66,7 @@ function FilmPage(): JSX.Element {
     }
 
     dispatch(redirectToRoute(`/player/${film.id}`));
-  }
+  };
 
   return (
     <>

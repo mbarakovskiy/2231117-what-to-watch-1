@@ -24,8 +24,7 @@ function App(): JSX.Element {
   return (
     <HistoryRouter history={browserHistory}>
       <Routes>
-        <Route path={AppRoute.MainPage} element={<MainPage /> }
-        />
+        <Route path={AppRoute.MainPage} element={<MainPage />} />
         <Route path={AppRoute.SignIn} element={<SignIn />} />
         <Route path={AppRoute.Film} element={<FilmPage />} />
         <Route
