@@ -6,7 +6,7 @@ import { ReviewType } from '../../types/review-type';
 import Tabs from '../../components/movie tabs/tabs';
 import { Link, useParams } from 'react-router-dom';
 import UserBlock from '../../components/user-block/user-block';
-import { useEffect, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { AppRoute, AuthorizationStatus } from '../../components/const';
 import { StatusCodes } from 'http-status-codes';
@@ -47,8 +47,8 @@ function FilmPage(): JSX.Element {
       .then(() => fetchSimilarFilms())
       .then(() => fetchFilmReviews())
       .then(() => setData(true))
-      .catch((err: AxiosError) => {
-        if (err.response && err.response.status === StatusCodes.NOT_FOUND) {
+      .catch((e: AxiosError) => {
+        if (e.response && e.response.status === StatusCodes.NOT_FOUND) {
           dispatch(redirectToRoute(AppRoute.NotFound));
         }
       });
@@ -57,6 +57,16 @@ function FilmPage(): JSX.Element {
   if (!dataLoaded) {
     return <Loader/>;
   }
+
+  const handlePlayClick = (evt: MouseEvent<HTMLButtonElement>) => {
+    evt.preventDefault();
+
+    if (!film) {
+      return;
+    }
+
+    dispatch(redirectToRoute(`/player/${film.id}`));
+  };
 
   return (
     <>
@@ -83,7 +93,7 @@ function FilmPage(): JSX.Element {
               </p>
 
               <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
+                <button className="btn btn--play film-card__button" type="button" onClick={handlePlayClick}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>

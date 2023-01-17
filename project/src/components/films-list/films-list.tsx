@@ -7,16 +7,19 @@ type Props = {
 }
 
 function FilmList({films}: Props): JSX.Element {
-  const [, setActive] = useState({});
+  const [active, setActive] = useState<Film | null>(null);
 
   const handleFilmOnHover = (film: Film) => {
     setActive(film);
   };
 
   return (
-    <div className="catalog__films-list">
-      {films.map((film) => <FilmCard key={film.id} film={film} onHover={handleFilmOnHover}/>)}
-    </div>
+    <>
+      <div style={{display: 'none'}}>{active?.name}</div>
+      <div className="catalog__films-list">
+        {films.map((film) => <FilmCard key={film.id} film={film} onHover={handleFilmOnHover}/>)}
+      </div>
+    </>
   );
 }
 

@@ -1,8 +1,8 @@
-import { Film } from '../../types/film';
 import { useEffect, useRef } from 'react';
 
 type Props = {
-  film: Film;
+  src: string;
+  posterImage: string;
   isPlaying: boolean;
   muted: boolean;
   width: number;
@@ -10,7 +10,7 @@ type Props = {
 }
 
 
-function VideoPlayer({film, isPlaying, muted, width, height}: Props): JSX.Element {
+function VideoPlayer({src, posterImage, isPlaying, muted, width, height}: Props): JSX.Element {
   const videoPlayerRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
@@ -31,8 +31,8 @@ function VideoPlayer({film, isPlaying, muted, width, height}: Props): JSX.Elemen
       ref={videoPlayerRef}
       width={width}
       height={height}
-      src={film.videoLink}
-      poster={film.posterImage}
+      src={src}
+      poster={posterImage}
       muted={muted}
     />
   );

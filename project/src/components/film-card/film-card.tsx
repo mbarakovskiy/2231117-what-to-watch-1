@@ -1,6 +1,8 @@
-import {Film} from '../../types/film';
-import {useEffect, useState} from 'react';
+import { Film} from '../../types/film';
+import { useEffect, useState } from 'react';
 import VideoPlayer from '../video-player/video-player';
+import { Link } from 'react-router-dom';
+import { getFilmUrl } from '../../utils';
 
 export type Props = {
   film: Film;
@@ -25,7 +27,7 @@ function FilmCard({film, onHover}: Props): JSX.Element {
   return (
     <article
       className="small-film-card catalog__films-card"
-      onMouseEnter={() => {
+      onMouseOver={() => {
         onHover(film);
         setIsNeedVideoToPlay(true);
       }}
@@ -37,15 +39,21 @@ function FilmCard({film, onHover}: Props): JSX.Element {
     >
       <div className="small-film-card__image">
         <VideoPlayer
-          film={film}
+          posterImage={film.previewImage}
           isPlaying={isVideoPlaying}
           muted
           width={280}
           height={175}
+          src={film.videoLink}
         />
       </div>
       <h3 className="small-film-card__title">
-        <a className="small-film-card__link" href="/">{film.name}</a>
+        <Link
+          to={getFilmUrl(film)}
+          className="small-film-card__link"
+        >
+          {film.name}
+        </Link>
       </h3>
     </article>
   );
