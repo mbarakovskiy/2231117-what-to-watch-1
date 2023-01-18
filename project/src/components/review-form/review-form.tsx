@@ -39,8 +39,7 @@ function ReviewForm({disabled, onSubmit}: Props): JSX.Element {
           key={index} // eslint-disable-line react/no-array-index-key
         />
       )
-    )
-    .reverse();
+    ).reverse();
 
   return (
     <form className="add-review__form" onSubmit={handleReviewSubmit}>
