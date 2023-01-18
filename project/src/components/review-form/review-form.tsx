@@ -29,14 +29,14 @@ function ReviewForm({disabled, onSubmit}: Props): JSX.Element {
 
   const isSubmitDisabled = comment.length < MIN_COMMENT_LEN || comment.length > MAX_COMMENT_LEN || disabled;
 
-  const ratingStars = [...Array(MAX_STARS_COUNT)]
+  const ratingStars = [...Array(MAX_STARS_COUNT)] // eslint-disable-line @typescript-eslint/no-unsafe-assignment
     .map((_, index) =>
       (
         <RatingStar
           score={index + 1}
           isChosen={rating === (index + 1)}
           onChange={handleChangeRating}
-          key={index} // eslint-disable-line react/no-array-index-key /
+          key={index} // eslint-disable-line react/no-array-index-key
         />
       )
     )
