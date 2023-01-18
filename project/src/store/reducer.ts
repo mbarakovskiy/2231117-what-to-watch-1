@@ -17,7 +17,7 @@ type AppState = {
   isDataLoaded: boolean;
   authorizationStatus: AuthorizationStatus;
   user: User | null;
-  favouriteFilms: Film[];
+  favoriteFilms: Film[];
 };
 
 const initialState: AppState = {
@@ -26,7 +26,7 @@ const initialState: AppState = {
   isDataLoaded: false,
   authorizationStatus: AuthorizationStatus.Unknown,
   user: null,
-  favouriteFilms: []
+  favoriteFilms: []
 };
 
 export const reducer = createReducer(initialState, (builder) => {
@@ -48,6 +48,6 @@ export const reducer = createReducer(initialState, (builder) => {
       state.user = action.payload;
     })
     .addCase(setFavouriteFilms, (state, action) => {
-      state.favouriteFilms = action.payload;
+      state.favoriteFilms = action.payload;
     });
 });

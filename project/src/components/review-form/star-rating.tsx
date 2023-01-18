@@ -1,13 +1,13 @@
 import { ChangeEvent } from 'react';
 
 type Props = {
-  rating: number;
+  score: number;
   isChosen: boolean;
   onChange: (value: number) => void;
 }
 
-function RatingStar({rating, isChosen, onChange}: Props): JSX.Element {
-  const scoreStr = rating.toString();
+function RatingStar({score, isChosen, onChange}: Props): JSX.Element {
+  const scoreStr = score.toString();
   const handleChangeRating = (e: ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value, 10);
     onChange(value);

@@ -58,7 +58,7 @@ function MainPage() : JSX.Element {
         <header className="page-header film-card__head">
           <Logo/>
 
-          <UserBlock/>
+          <UserBlock />
         </header>
 
         <div className="film-card__wrap">

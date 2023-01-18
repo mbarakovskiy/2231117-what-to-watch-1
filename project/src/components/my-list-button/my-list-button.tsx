@@ -13,8 +13,8 @@ type Props = {
 
 
 function MyListButton({ filmId }: Props): JSX.Element {
-  const { favouriteFilms, authorizationStatus } = useAppSelector((state) => state);
-  const [isFavourite, setFavourite] = useState(favouriteFilms.some((film) => film.id === filmId));
+  const { favoriteFilms: favoriteFilms, authorizationStatus } = useAppSelector((state) => state);
+  const [isFavorite, setFavorite] = useState(favoriteFilms.some((film) => film.id === filmId));
 
   const dispatch = useAppDispatch();
 
@@ -27,9 +27,9 @@ function MyListButton({ filmId }: Props): JSX.Element {
     }
 
     const changeFilmFavoriteStatus = async () => {
-      const { data: changedFilm } = await api.post<Film>(`${APIRoute.Favourite}/${filmId}/${isFavourite ? 0 : 1}`);
+      const { data: changedFilm } = await api.post<Film>(`${APIRoute.Favorite}/${filmId}/${isFavorite ? 0 : 1}`);
 
-      setFavourite(changedFilm.isFavourite);
+      setFavorite(changedFilm.isFavourite);
     };
 
     changeFilmFavoriteStatus()
@@ -39,10 +39,10 @@ function MyListButton({ filmId }: Props): JSX.Element {
   return (
     <button className="btn btn--list film-card__button" type="button" onClick={handleMyListClick}>
       <svg viewBox="0 0 19 20" width="19" height="20">
-        {isFavourite ? <use xlinkHref="#in-list"></use> : <use xlinkHref="#add"></use>}
+        {isFavorite ? <use xlinkHref="#in-list"></use> : <use xlinkHref="#add"></use>}
       </svg>
       <span>My list</span>
-      <span className="film-card__count">{favouriteFilms.length}</span>
+      <span className="film-card__count">{favoriteFilms.length}</span>
     </button>
   );
 }
