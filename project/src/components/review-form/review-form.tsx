@@ -12,11 +12,11 @@ type Props = {
 }
 function ReviewForm({disabled, onSubmit}: Props): JSX.Element {
   const [comment, setComment] = useState('');
-  const [starsCount, setRating] = useState(0);
+  const [rating, setRating] = useState(0);
 
   const handleReviewSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    onSubmit({comment: comment, starsCount: starsCount});
+    onSubmit({comment: comment, starsCount: rating});
   };
 
   const handleChangeComment = (evt: ChangeEvent<HTMLTextAreaElement>) => {
@@ -29,12 +29,12 @@ function ReviewForm({disabled, onSubmit}: Props): JSX.Element {
 
   const isSubmitDisabled = comment.length < MIN_COMMENT_LEN || comment.length > MAX_COMMENT_LEN || disabled;
 
-  const ratingStars = [Array(MAX_STARS_COUNT).keys()]
+  const ratingStars = [...Array(MAX_STARS_COUNT)]
     .map((_, index) =>
       (
         <RatingStar
-          rating={index + 1}
-          isChosen={starsCount === (index + 1)}
+          score={index + 1}
+          isChosen={rating === (index + 1)}
           onChange={handleChangeRating}
           key={index} // eslint-disable-line react/no-array-index-key
         />

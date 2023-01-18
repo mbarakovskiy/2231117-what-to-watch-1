@@ -72,9 +72,9 @@ export const fetchFavouriteFilms = createAsyncThunk<void, undefined, {
   state: State;
   extra: AxiosInstance;
 }>(
-  'data/fetchFavouriteFilms',
+  'data/fetchFavoriteFilms',
   async (_arg, {dispatch, extra: api}) => {
-    const { data: favouriteFilms } = await api.get<Film[]>(APIRoute.Favourite);
+    const { data: favouriteFilms } = await api.get<Film[]>(APIRoute.Favorite);
     dispatch(setFavouriteFilms(favouriteFilms));
   }
 );
