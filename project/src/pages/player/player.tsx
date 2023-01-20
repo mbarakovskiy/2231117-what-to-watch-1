@@ -32,17 +32,20 @@ function Player(): JSX.Element {
 
   useEffect(() => {
     const fetchFilm = async () => {
-      if (!id) {
+      if (!id){
         return null;
       }
 
       const { data: filmInfo } = await api.get<Film>(`/films/${id}`);
 
-      setFilm(filmInfo);
+      return filmInfo;
     };
 
-    fetchFilm();
-  }, []);
+    fetchFilm()
+      .then((filmInfo) => {
+        setFilm(filmInfo);
+      });
+  }, [id]);
 
   const handlePlayPauseButtonClick = () => {
     setPlaying(!isPlaying);

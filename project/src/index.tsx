@@ -1,3 +1,4 @@
+import 'react-toastify/dist/ReactToastify.min.css';
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';

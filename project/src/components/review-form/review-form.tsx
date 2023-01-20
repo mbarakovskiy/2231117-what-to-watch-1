@@ -27,7 +27,7 @@ function ReviewForm({disabled, onSubmit}: Props): JSX.Element {
     setRating(newRating);
   };
 
-  const isSubmitDisabled = comment.length < MIN_COMMENT_LEN || comment.length > MAX_COMMENT_LEN || disabled;
+  const isSubmitDisabled = comment.length < MIN_COMMENT_LEN || comment.length > MAX_COMMENT_LEN || disabled || rating === 0;
 
   const ratingStars = [...Array(MAX_STARS_COUNT)] // eslint-disable-line @typescript-eslint/no-unsafe-assignment
     .map((_, index) =>

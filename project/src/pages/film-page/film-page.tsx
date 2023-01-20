@@ -53,7 +53,7 @@ function FilmPage(): JSX.Element {
           dispatch(redirectToRoute(AppRoute.NotFound));
         }
       });
-  }, [id]);
+  }, [id, dispatch]);
 
   if (!dataLoaded) {
     return <Loader/>;

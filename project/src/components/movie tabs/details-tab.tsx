@@ -15,7 +15,7 @@ function DetailsTab({film}: Props): JSX.Element {
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Starring</strong>
           <span className="film-card__details-value">
-            {film.starring.map((actor) => <div key={actor}>{actor}, <br /></div>)}
+            {film.starring.join(', \n')}.
           </span>
         </p>
       </div>

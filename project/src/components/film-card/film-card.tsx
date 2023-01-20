@@ -37,24 +37,24 @@ function FilmCard({film, onHover}: Props): JSX.Element {
         setIsVideoPlaying(false);
       }}
     >
-      <div className="small-film-card__image">
-        <VideoPlayer
-          posterImage={film.previewImage}
-          isPlaying={isVideoPlaying}
-          muted
-          width={280}
-          height={175}
-          src={film.videoLink}
-        />
-      </div>
-      <h3 className="small-film-card__title">
-        <Link
-          to={getFilmUrl(film)}
-          className="small-film-card__link"
-        >
+      <Link
+        to={getFilmUrl(film)}
+        className="small-film-card__link"
+      >
+        <div className="small-film-card__image">
+          <VideoPlayer
+            posterImage={film.previewImage}
+            isPlaying={isVideoPlaying}
+            muted
+            width={280}
+            height={175}
+            src={film.videoLink}
+          />
+        </div>
+        <h3 className="small-film-card__title">
           {film.name}
-        </Link>
-      </h3>
+        </h3>
+      </Link>
     </article>
   );
 }

@@ -4,6 +4,8 @@ type Props = {
   review: ReviewType;
 }
 
+const formatDate = (date: string) => new Date(date).toLocaleDateString('en-us', { year:'numeric', month:'long', day:'numeric'});
+
 function Review({ review }: Props): JSX.Element {
   return (
     <div className="review">
@@ -12,11 +14,11 @@ function Review({ review }: Props): JSX.Element {
 
         <footer className="review__details">
           <cite className="review__author">{review.user.name}</cite>
-          <time className="review__date" dateTime="2016-12-24">{review.date}</time>
+          <time className="review__date" dateTime="2016-12-24">{formatDate(review.date)}</time>
         </footer>
       </blockquote>
 
-      <div className="review__rating">{review.rating}</div>
+      <div className="review__rating">{review.rating.toFixed(1)}</div>
     </div>
   );
 }

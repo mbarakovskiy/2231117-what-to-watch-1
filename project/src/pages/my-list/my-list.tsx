@@ -5,21 +5,21 @@ import UserBlock from '../../components/user-block/user-block';
 import { useAppSelector } from '../../hooks/hooks';
 
 function MyListPage(): JSX.Element {
-  const { favoriteFilms } = useAppSelector((state)=> state);
+  const { favouriteFilms } = useAppSelector((state)=> state);
 
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
         <Logo/>
 
-        <h1 className="page-title user-page__title">My list <span className="user-page__film-count">{favoriteFilms.length}</span></h1>
+        <h1 className="page-title user-page__title">My list <span className="user-page__film-count">{favouriteFilms.length}</span></h1>
         <UserBlock />
       </header>
 
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <FilmsList films={favoriteFilms}/>
+        <FilmsList films={favouriteFilms}/>
       </section>
       <Footer/>
     </div>

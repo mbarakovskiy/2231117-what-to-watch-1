@@ -13,7 +13,7 @@ type Props = {
 
 
 function MyListButton({ filmId }: Props): JSX.Element {
-  const { favoriteFilms: favoriteFilms, authorizationStatus } = useAppSelector((state) => state);
+  const { favouriteFilms: favoriteFilms, authorizationStatus } = useAppSelector((state) => state);
   const [isFavorite, setFavorite] = useState(favoriteFilms.some((film) => film.id === filmId));
 
   const dispatch = useAppDispatch();
